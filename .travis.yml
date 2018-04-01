@@ -11,6 +11,9 @@ matrix:
 
 before_install:
   - uname -a
-  - sudo echo "hello from sudo"
+  - | 
+    if [[ "$TRAVIS_OS_NAME" == "Linux" ]]; then
+      sudo apt-get update
+    fi
 script:
   - echo "hello travis!"
